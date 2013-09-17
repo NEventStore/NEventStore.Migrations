@@ -12,14 +12,20 @@ Instructions
  2. Inspect the package dependencies in MigrateCommits.Source and MigrateCommits.Destination projects and ensure they match your environment.
  3. Modify ```MigrateCommits.Source.SourceStore``` to wirup to your source event store.
  4. Modify ```MigrateCommits.Destination.SourceStore``` to wirup to your destination event store.
- 5. ***Important*** Add a reference to the MigrateCommits.Source and MigrateCommits.Destination projects to your events assembly so that headers and event bodies can be deserialized.
+ 5. ***Important*** Add a reference to your events assembly in the MigrateCommits.Source and MigrateCommits.Destination projects so that headers and event bodies can be deserialized.
  6. Remove sample test code from ```MigrateCommits.Destination.SourceStore``` constructor.
+
+Message Serialization (Optional)
+------------------------------
+It is assumed that your messages (events & headers) are marked ```[Serializable]``` so they can be treansferred across appdomain boundaries. If they are not, either mark them as such, or, perform manual serialization & deserialization. To use custom serialization:
+
+1. Modify ```MigrateCommits.Source.SourceStore``` SerializeHeaders & SerializeBody methods to return serialized body & header values
+2. Modify ```MigrateCommits.Destination.SourceStore``` DeserializeHeaders & DeserializeBody methods to return deserialized body & header values
 
 Notes
 -----
 
  * Backup everything first.
- * It is assumed that your messages (events & headers) are marked ```[Serializable]``` so they can be treansferred across appdomain boundaries. If they are not, either mark them as such, or, perform manual serialization, adjusting ```SourceCommitMessage``` and ```SourceEventMessage``` accordingly.
  * Snapshots are not migrated. Just re-run your snapshot process on the destination store after migration.
 
 Questions? Head over to the [Google Group](https://groups.google.com/forum/#!forum/neventstore) or [Jabbr Room](https://jabbr.net/#/rooms/NEventStore)
