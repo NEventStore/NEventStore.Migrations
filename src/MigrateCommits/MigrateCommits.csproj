@@ -43,7 +43,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MigrateCommits.Remote\MigrateCommits.Remote.csproj">
       <Project>{E31B156F-284D-49EE-BD4B-21EA4EBA2D81}</Project>
-      <Name>MigrateStreams.Remote</Name>
+      <Name>MigrateCommits.Remote</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
