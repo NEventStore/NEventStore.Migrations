@@ -10,8 +10,8 @@ Instructions
 
  1. Clone the repo. You will need to make changes to it to suit your environment.
  2. Inspect the package dependencies in MigrateCommits.Source and MigrateCommits.Destination projects and ensure they match your environment.
- 3. Modify ```MigrateCommits.Source.SourceStore``` to wirup to your source event store.
- 4. Modify ```MigrateCommits.Destination.SourceStore``` to wirup to your destination event store.
+ 3. Modify ```MigrateCommits.Source.SourceStore``` to wireup to your source event store.
+ 4. Modify ```MigrateCommits.Destination.SourceStore``` to wireup to your destination event store.
  5. ***Important*** Add a reference to your events assembly in the MigrateCommits.Source and MigrateCommits.Destination projects so that headers and event bodies can be deserialized.
  6. Remove sample test code from ```MigrateCommits.Destination.SourceStore``` constructor.
 
